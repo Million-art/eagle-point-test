@@ -25,7 +25,7 @@ I understand the task and Its string manipulation and i have good understanding 
 7. then i need to return the results in an object.
 
 # Task 2. Async Fetch with Retry
-1. i created an async function fetchWithRetry that takes a URL and maxRetries parameter with default value of 3.
+1. i created an async function fetchWithRetry that takes a URL and maxRetries parameter with default value of 3. reference https://dev.to/ycmjason/javascript-fetch-retry-upon-failure-3p6g
 
 2. i use a for loop to iterate through retry attempts from 1 to maxRetries.
    i chose a for loop over recursion because it is more straightforward and easier to control the number of attempts.
