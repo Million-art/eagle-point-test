@@ -54,3 +54,25 @@ I understand the task and Its string manipulation and i have good understanding 
 - i validate the HTTP response status to catch both network errors and HTTP errors like 404 or 500.
 - i wait 1 second between retries to avoid overwhelming the server and to give temporary network issues time to resolve.
 
+# Task 3. Rate Limiter
+
+1. i implemented a RateLimiter class to encapsulate the logic and state.
+   it takes maxRequests and windowMs as constructor arguments to make it reusable for different limits.
+
+2. i use a Map to store user data because it provides efficient key-value storage and is optimized for frequent additions and removals.
+   the key is the userId and the value is an array of timestamps representing their requests.
+
+3. in the allowRequest method, i first get the current timestamp using Date.now().
+   i retrieve the user's request history or initialize it if it's a new user.
+
+4. i filter the user's request array to keep only timestamps that are within the current time window.
+   this effectively implements a "sliding window" and automatically removes old requests without needing a background cleanup job.
+
+5. i check if the number of valid requests is less than the limit.
+   if it is, i add the current timestamp to the array and return allowed: true.
+   if the limit is reached, i calculate the time remaining until the oldest request expires and return allowed: false.
+
+- i chose a class-based approach to keep the state (users map) and configuration (limits) together.
+- i use an array of timestamps instead of just a counter to allow for a precise sliding window implementation.
+- i clean up old requests lazily (only when a user makes a request) to avoid unnecessary background processing.
+- i return detailed info (remaining requests, reset time) to make the API more helpful for the client.
