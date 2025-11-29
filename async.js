@@ -30,7 +30,7 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// Test the function
+// Test the function.
 async function test() {
     try {
         console.log("fetching data...");
