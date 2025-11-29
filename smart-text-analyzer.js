@@ -17,7 +17,7 @@ function smartTextAnalyzer(text) {
     // Remove duplicate words
     const uniqueLongestWords = [...new Set(longestWords)];
     
-    // Word frequency (case-insensitive)
+    // Word frequency (case-insensitive).
     const wordFrequency = {};
     words.forEach(word => {
         wordFrequency[word] = (wordFrequency[word] || 0) + 1;
